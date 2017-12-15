@@ -9,12 +9,16 @@
 
 #define FILENAME "liste1.txt"
 //#define FILENAME "liste2.txt"
-#define MAX_LOAD_FACTOR 0.5f
+#define MAX_LOAD_FACTOR 0.9f
+
+#define NB_ITERATION 20
 
 #include <cstdlib>
 #include <iostream>
 #include <unordered_set>
 #include <limits>
+
+#include <ctime>
 
 #include "HashTableTester.h"
 
@@ -34,7 +38,6 @@ void test(std::string filename) {
     std::cout << "------------------------------------------------------" << std::endl;
     HashTableTester<Type> tester(filename);
     std::cout << "Insertion: " << std::endl;
-    tester.displayInsertionStats();
     std::cout << "Distribution: " << std::endl;
     tester.displayDistributionStats();
     tester.performSearch();
@@ -42,6 +45,8 @@ void test(std::string filename) {
     tester.displaySearchStats();
     std::cout << std::endl;
 }
+
+
 
 int main() {
 
