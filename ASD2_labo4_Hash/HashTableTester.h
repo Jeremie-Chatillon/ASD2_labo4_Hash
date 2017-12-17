@@ -135,29 +135,17 @@ public:
     }
    
     void displaySearchStats() {
-        long meanTantotalMicroSeconds = 0;
-        double meanAverage = 0.0;
-        double meanPercentFound = 0.0;
-        
-        for(size_t i = 0; i < NB_ITER; ++i){
-            std::chrono::high_resolution_clock::duration total = std::chrono::high_resolution_clock::duration::zero();
-            for(auto duration : this->searchTimes) {
-                total += duration;
-            }
-            long totalMicroSeconds = std::chrono::duration_cast<std::chrono::microseconds>(total).count();
-            double average = ((double) totalMicroSeconds) / this->searchElements;
-            double percentFound = 100.0 * ((double)(this->foundElements)   / this->searchElements);
-            
-            meanTantotalMicroSeconds += totalMicroSeconds;
-            meanAverage += average;
-            meanPercentFound += percentFound;
-            
+        std::chrono::high_resolution_clock::duration total = std::chrono::high_resolution_clock::duration::zero();
+        for(auto duration : this->searchTimes) {
+            total += duration;
         }
-        
+        long totalMicroSeconds = std::chrono::duration_cast<std::chrono::microseconds>(total).count();
+        double average = ((double) totalMicroSeconds) / this->searchElements;
+        double percentFound = 100.0 * ((double)(this->foundElements)   / this->searchElements);
         std::cout << "Search total:                     " << this->searchElements << std::endl;
-        std::cout << "Found total:                      " << this->foundElements << " (" << meanPercentFound / NB_ITER << "%)"<< std::endl;
-        std::cout << "Search duration total   time:     " << meanTantotalMicroSeconds / NB_ITER << " microseconds" << std::endl;
-        std::cout << "Search duration average time:     " << meanAverage / NB_ITER << " microseconds" << std::endl;
+        std::cout << "Found total:                      " << this->foundElements << " (" << percentFound << "%)"<< std::endl;
+        std::cout << "Search duration total   time:     " << totalMicroSeconds << " microseconds" << std::endl;
+        std::cout << "Search duration average time:     " << average << " microseconds" << std::endl;
     }
     
 };

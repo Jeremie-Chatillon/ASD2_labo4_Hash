@@ -13,6 +13,7 @@
 #include <cctype>
 #include <iostream>
 #include <functional>
+#include <string>
 
 class DirectoryWithoutAVS {
 private:
@@ -47,8 +48,30 @@ namespace std
     {
         size_t operator()(const DirectoryWithoutAVS& d) const
         {
-            //we use stl hash function for string type on name, we could do much better...
-            return std::hash<string>()(d.getName()); /* A AMELIORER */
+            // we use stl hash function for string type on name, we could do much better...
+            //std::cout << std::endl << d.getBirthday() << std::endl;
+            /**
+            string name = d.getName();
+           
+            string firstName = d.getFirstname();
+           
+            
+            size_t ashName = hash<string>()(d.getName()) ;
+            size_t ashFirstName = std::hash<string>()(d.getFirstname());
+            size_t ashDate = std::hash<string>()(d.getBirthday());
+
+            
+            
+            string toAsh = to_string(ashName%1000000) + to_string(ashFirstName%100000) + to_string(ashDate%1000000);
+            return std::hash<string>()(toAsh);
+            */
+            size_t toHash = 23;
+            toHash = 31 * toHash + hash<string>()(d.getName());
+            toHash = 31 * toHash + hash<string>()(d.getFirstname());
+            toHash = 31 * toHash + hash<string>()(d.getGender());
+            toHash = 31 * toHash + hash<string>()(d.getBirthday());
+            return hashval;
+             
         }
     };
 }

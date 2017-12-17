@@ -74,52 +74,52 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/asd2_labo4_hash.exe: ${OBJECTFILES}
 ${OBJECTDIR}/DirectoryCity.o: DirectoryCity.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryCity.o DirectoryCity.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryCity.o DirectoryCity.cpp
 
 ${OBJECTDIR}/DirectoryInt.o: DirectoryInt.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryInt.o DirectoryInt.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryInt.o DirectoryInt.cpp
 
 ${OBJECTDIR}/DirectoryLong.o: DirectoryLong.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryLong.o DirectoryLong.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryLong.o DirectoryLong.cpp
 
 ${OBJECTDIR}/DirectorySha256.o: DirectorySha256.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectorySha256.o DirectorySha256.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectorySha256.o DirectorySha256.cpp
 
 ${OBJECTDIR}/DirectoryStl.o: DirectoryStl.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryStl.o DirectoryStl.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryStl.o DirectoryStl.cpp
 
 ${OBJECTDIR}/DirectoryWithoutAVS.o: DirectoryWithoutAVS.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryWithoutAVS.o DirectoryWithoutAVS.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DirectoryWithoutAVS.o DirectoryWithoutAVS.cpp
 
 ${OBJECTDIR}/Util.o: Util.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Util.o Util.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Util.o Util.cpp
 
 ${OBJECTDIR}/libs/city.o: libs/city.cc
 	${MKDIR} -p ${OBJECTDIR}/libs
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/city.o libs/city.cc
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/city.o libs/city.cc
 
 ${OBJECTDIR}/libs/sha256.o: libs/sha256.cpp
 	${MKDIR} -p ${OBJECTDIR}/libs
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/sha256.o libs/sha256.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libs/sha256.o libs/sha256.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -O2 -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:
