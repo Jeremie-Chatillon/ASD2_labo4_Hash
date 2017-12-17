@@ -23,6 +23,7 @@
 
 template <typename ElementType>
 class HashTableTester {
+    
 private:
     std::string filename;
     std::unordered_set<ElementType> set;
@@ -31,9 +32,11 @@ private:
     size_t searchElements;
     size_t foundElements;
     
+    const std::string csv = ",";
+    
 public:
     
-    HashTableTester(const std::string& filename) : filename(filename) {
+    HashTableTester(const std::string& filename,float MAX_LOAD_FACTOR) : filename(filename) {
         
         //we configure the load factor before resizing
         this->set.max_load_factor(MAX_LOAD_FACTOR);
@@ -68,6 +71,18 @@ public:
         std::cout << "Insertion total:                  " << this->insertionTimes.size() << std::endl;
         std::cout << "Insertion duration total   time:  " << totalMicroSeconds << " microseconds" << std::endl;
         std::cout << "Insertion duration average time:  " << average << " microseconds" << std::endl;
+        std::ostringstream oss;
+        oss << this->insertionTimes.size() << csv << totalMicroSeconds << csv << average << csv;
+        saveStats(oss.str());
+    }
+    
+    void saveStats(std::string s){
+        FILE* pfile;
+        pfile = fopen("stats.csv","a");
+        if(pfile != NULL){
+            fputs(s.c_str(), pfile);
+            fclose;
+        }
     }
     
     void displayDistributionStats() {
@@ -102,6 +117,13 @@ public:
         std::cout << "Largest bucket:                   " << maxNbrElements << std::endl;
         std::cout << "Smallest bucket:                  " << minNbrElements << std::endl;
         
+        std::ostringstream oss;
+        oss << nbrBucket << csv << 
+                nbrCollisions << csv << 
+                nbrEmptyBuckets  << csv << 
+                maxNbrElements  << csv <<  
+                minNbrElements << csv;
+        saveStats(oss.str());        
     }
     
     void performSearch() {
@@ -146,6 +168,13 @@ public:
         std::cout << "Found total:                      " << this->foundElements << " (" << percentFound << "%)"<< std::endl;
         std::cout << "Search duration total   time:     " << totalMicroSeconds << " microseconds" << std::endl;
         std::cout << "Search duration average time:     " << average << " microseconds" << std::endl;
+        
+        std::ostringstream oss;
+        oss << this->searchElements << csv <<
+               this->foundElements << csv <<
+               totalMicroSeconds << csv << 
+               average << csv;
+        saveStats(oss.str());
     }
     
 };
