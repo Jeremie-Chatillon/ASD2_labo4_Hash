@@ -7,8 +7,8 @@
 //  Copyright © 2015 IICT, HEIG-VD. All rights reserved.
 //
 
-#define FILENAME "liste1.txt"
-//#define FILENAME "liste2.txt"
+//#define FILENAME "liste1.txt"
+#define FILENAME "liste2.txt"
 
 #include <cstdlib>
 #include <iostream>
@@ -26,7 +26,7 @@
 
 #include "DirectoryWithoutAVS.h"
 
-float MAX_LOAD_FACTOR = 0.1f;
+float MAX_LOAD_FACTOR = 0.5f;
 
 template <typename Type>
 void test(std::string filename) {
@@ -54,20 +54,24 @@ void test(std::string filename) {
 
 int main() {
     std::string filename(FILENAME);
-    for(int i = 1; i < 10; i++) {
         //PART 1
-        test<DirectoryInt>(filename);
-        /*
-        test<DirectoryLong>(filename);
-        test<DirectoryPol<2>>(filename);    //polynomial with z =  2
-        test<DirectoryPol<31>>(filename);   //polynomial with z = 31
-        test<DirectoryPol<37>>(filename);   //polynomial with z = 37
-        test<DirectoryStl>(filename);
-        test<DirectorySha256>(filename);
-        test<DirectoryCity>(filename);
-        */
-        MAX_LOAD_FACTOR += 0.1;
-    }
+        test<DirectoryInt>("liste1.txt");
+        test<DirectoryInt>("liste2.txt");
+        test<DirectoryLong>("liste1.txt");
+        test<DirectoryLong>("liste2.txt");
+        test<DirectoryPol<2>>("liste1.txt");    //polynomial with z =  2
+        test<DirectoryPol<2>>("liste2.txt");    //polynomial with z =  2
+        test<DirectoryPol<31>>("liste1.txt");   //polynomial with z = 31
+        test<DirectoryPol<31>>("liste2.txt");   //polynomial with z = 31
+        test<DirectoryPol<37>>("liste1.txt");   //polynomial with z = 37
+        test<DirectoryPol<37>>("liste2.txt");   //polynomial with z = 37
+        test<DirectoryStl>("liste1.txt");
+        test<DirectoryStl>("liste2.txt");
+        test<DirectorySha256>("liste1.txt");
+        test<DirectorySha256>("liste2.txt");
+        test<DirectoryCity>("liste1.txt");
+        test<DirectoryCity>("liste2.txt");
+        
     //PART 2
     //test<DirectoryWithoutAVS>(filename);
     
